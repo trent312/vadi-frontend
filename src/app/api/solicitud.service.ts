@@ -15,13 +15,7 @@ export class SolicitudService {
         return this.http.get<Solicitud[]>('http://localhost:5044/solicitud');
     }
 
-    private getSuccessfulResponse(response: any): Observable<Solicitud[]> {
-        const result = response.data;
-        return of(result);
-    }
-
-    private catchError(error: Error): Observable<Solicitud[]> {
-        console.log(error);
-        return of([]);
+    public deleteSolicitud(id: number): Observable<void> {
+        return this.http.post<void>(`http://localhost:5044/solicitud/delete?id=${id}`, null);
     }
 }

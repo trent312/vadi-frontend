@@ -7,3 +7,10 @@ export const loadSolicitudesSuccess = createAction(
   '[Solicitud] Load Solicitudes Success',
   props<{ solicitudes: Solicitud[] }>()
 );
+
+export const deleteSolicitud = createAction('[Solicitud] Delete Solicitud',  props<{ id: number }>());
+
+export const deleteSolicitudSuccess = createAction(
+  '[Solicitud] Delete Solicitud Success',
+  props<{ id: number }>()
+);

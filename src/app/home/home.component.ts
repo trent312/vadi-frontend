@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Solicitud } from '../api/solicitud.model';
 import { selectAllSolicitudes } from '../state/solicitud/redux/solicitud.selectors';
-import { loadSolicitudes } from '../state/solicitud/redux/actions/solicitud.actions';
+import { loadSolicitudes, deleteSolicitud } from '../state/solicitud/redux/actions/solicitud.actions';
 
 @Component({
   selector: 'app-home',
@@ -23,8 +23,7 @@ export class HomeComponent implements OnInit {
     }
 
     deleteSolicitud(id: number): void {
-      console.log(id);
-      alert(id);
-      
+      this.store.dispatch(deleteSolicitud({ id }));
+      alert('Se eliminó satisfactoriamente la solicitud.');
     }
 }
