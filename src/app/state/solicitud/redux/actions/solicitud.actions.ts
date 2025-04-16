@@ -14,3 +14,10 @@ export const deleteSolicitudSuccess = createAction(
   '[Solicitud] Delete Solicitud Success',
   props<{ id: number }>()
 );
+
+export const insertSolicitud = createAction('[Solicitud] Insert Solicitud',  props<{solicitud: Solicitud}>());
+
+export const insertSolicitudSuccess = createAction(
+  '[Solicitud] Insert Solicitud Success',
+  props<{ solicitud: Solicitud }>()
+);

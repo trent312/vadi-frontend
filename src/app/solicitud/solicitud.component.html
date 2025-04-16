@@ -1,0 +1,21 @@
+<form [formGroup]="solicitudForm" (ngSubmit)="submitForm()">
+    <mat-form-field appearance="outline">
+        <mat-label>Código de la solicitud</mat-label>
+        <input matInput placeholder="Código de la solicitud" name="id" [(ngModel)]="solicitudForm.value.id" readonly>
+    </mat-form-field>
+    <div>
+        <label for="fechaSolicitud">Fecha de solicitud: </label>
+        <input type="date" name="fechaSolicitud" id="fechaSolicitud" formControlName="fechaSolicitud"/>
+    </div>
+    <div>
+        <label for="solicitante">Solicitante: </label>
+        <input type="text" name="solicitante" id="solicitante" formControlName="solicitante"/>
+    </div>
+    <div>
+        <label for="idEstado">Id Estado: </label>
+        <input type="number" name="idEstado" id="idEstado" formControlName="idEstado"/>
+    </div>
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+</form>

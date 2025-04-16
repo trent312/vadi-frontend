@@ -1,6 +1,6 @@
 <div class="container" *ngIf="solicitudes$ | async as solicitudes">
     <div class="mb-3">
-        <button mat-raised-button color="accent" routerLink="/employee">Go to Employee Form</button>
+        <button mat-raised-button color="accent" routerLink="/solicitud">Crear Solicitud</button>
     </div>
 
     <table mat-table [dataSource]="solicitudes" class="mat-elevation-z8">
@@ -28,14 +28,14 @@
             <td mat-cell *matCellDef="let solicitud"> {{solicitud.idEstado}} </td>
         </ng-container>
 
-        <!-- <ng-container matColumnDef="edit">
+        <ng-container matColumnDef="edit">
             <th mat-header-cell *matHeaderCellDef> </th>
-            <td mat-cell *matCellDef="let element">
-                <button mat-icon-button color="primary" aria-label="Example icon button with a heart icon" (click)="updateEmployee(element.employeeId)">
+            <td mat-cell *matCellDef="let solicitud">
+                <button mat-icon-button color="primary" aria-label="Example icon button with a heart icon" (click)="updateSolicitud(solicitud.id)">
                     <mat-icon>edit</mat-icon>
                 </button>
             </td>
-        </ng-container> -->
+        </ng-container>
 
         <ng-container matColumnDef="delete">
             <th mat-header-cell *matHeaderCellDef> </th>

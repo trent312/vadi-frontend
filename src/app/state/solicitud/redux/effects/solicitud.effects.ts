@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { map, switchMap } from 'rxjs/operators';
-import { loadSolicitudes, loadSolicitudesSuccess, deleteSolicitud, deleteSolicitudSuccess } from '../actions/solicitud.actions';
+import { loadSolicitudes, loadSolicitudesSuccess, deleteSolicitud, deleteSolicitudSuccess, insertSolicitud, insertSolicitudSuccess } from '../actions/solicitud.actions';
 import { SolicitudService } from 'src/app/api/solicitud.service';
 
 @Injectable()
@@ -25,6 +25,17 @@ export class SolicitudEffects {
       )
     )
   );
+
+  insertSolicitud$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(insertSolicitud),
+      switchMap(({ solicitud }) => 
+        this.solicitudService$.insertSolicitud(solicitud).pipe(
+          map(() => insertSolicitudSuccess({ solicitud }))
+        )
+      )
+    )
+  )
 
   constructor(
     private solicitudService$: SolicitudService,
